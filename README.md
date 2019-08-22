@@ -8,7 +8,7 @@ This repo contains resources for the [Apache Airflow Contributor Workshop](https
 
 ## Agenda
 * 10:00 - Introduction to Apache Airflow - What Airflow is, how we use it and its main components
-* 11:00 - Introduction to the Apache Software Foundation
+* 11:00 - Introduction to the Apache Software Foundation - What the ASF is and how you can be a part of it
 * 11:30 - Break
 * 12:00 - Setting up an Airflow dev environment
 * 13:00 - Lunch
