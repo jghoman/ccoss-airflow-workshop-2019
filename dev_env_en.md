@@ -69,7 +69,7 @@ You will see a few containers running, copy the `airflow-testing` container. It'
 
 Next, run `docker exec -ti ci_airflow-testing_run_a61fb503e71a /bin/bash` to be dropped into a bash shell in the container.
 
-
+TODO: run the scheduler? default test and example dags are on. 
 ### Creating your first DAG 
 Let's create our first dag! Let's make a small DAG that will echo `Hola Mundo`. We'll be using the `airflow/example_dags/tutorial.py`
 
