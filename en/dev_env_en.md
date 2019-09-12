@@ -7,7 +7,7 @@ We'll be following the official Airflow [contributing](https://github.com/apache
 - Git & a Github account.
   - We'll be using GitHub to open Pull Requests to do our contributions
   - Make sure you have Git installed in your machine, and that your GitHub account is linked locally. This, so that you can clone repositories and push code.
-  
+
 - Clone / Fork Airflow:
   - Head over to https://github.com/apache/airflow and Click on the `Fork` icon on the top. This will create a fork of Airflow in your own account, which is needed to create contribution's Pull Requests. 
   - From here you can then clone your fork of github in your computer via `git clone git@github.com:<your_username>/airflow.git` or `git clone 
@@ -38,12 +38,25 @@ After the `./breeze` command is finished, you will be all set up, and it will dr
 
 ## Windows Setup
 
-### TODO: how to set up Linux subsystem for Windows 10. Else, set up a Docker container with centOS/ubuntu and follow the same guidelines to run breeze inside it.
+Unfortunately, Airflow doesn't yet support Windows. Nevertheless, here are two ways to try Breeze in Windows
+
+### Windows 10 + WSL2
+
+In Windows 10, we can run Breeze via [Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/wsl2-install).
+
+Please note that this will take more time to configure. However, once it's setup Docker and Breeze should be easy to install following the Linux instructions above.
+
+### Maquina Virtual / Dual-boot
+
+Another way to run Airflow and Breeze on Windows is by creating a virtual machine with Linux.
+
+First, install VMWare Player or VirtualBox. Then, chose a Linux distro like Ubuntu or centOS. After installing the disto, please follow the Linux instructions above. In a similar fashion, we can install a Linux distro in our hard drive, dual-booting, and then follow the Linux instructions.
 
 
-## Your first DAG
+## Setting up the webserver
 
-### Setting up the webserver 
+Congrats! You set-up Airflow Breeze. Now let's configure and run Airflow.
+
 After setting up Airflow breeze, and running the `./breeze` command you'll be inside the Airflow container. Here you run:
 
 `airflow db init`
@@ -57,7 +70,7 @@ Fill in that command with your information to be able to login to the web view. 
 Finally:
 `airflow webserver` 
 
-This will initiate the web server. Visit [https://127.0.0.1:28080/](https://127.0.0.1:28080/) and log in! You will see a list of test and example dags. 
+This will initiate the web server. Visit [https://127.0.0.1:28080/](https://127.0.0.1:28080/) and log in! You will see a list of test and example dags.
 
 Now, we'll have to open another bash terminal inside the airflow container to keep running commands while the webserver is running. In your shell run:
 
@@ -69,27 +82,4 @@ You will see a few containers running, copy the `airflow-testing` container. It'
 
 Next, run `docker exec -ti ci_airflow-testing_run_a61fb503e71a /bin/bash` to be dropped into a bash shell in the container.
 
-TODO: run the scheduler? default test and example dags are on. 
-### Creating your first DAG 
-Let's create our first dag! Let's make a small DAG that will echo `Hola Mundo`. We'll be using the `airflow/example_dags/tutorial.py`
-
-Let's add new file `hola_mundo.py` in the `airflow/example_dags` folder. In there, we'll create a DAG that runs once per day and echoes `Hola Mundo` using the Bash Operator.
-
-### A more elaborate first DAG 
-
-The city of Guadalajara publishes a report of the bicycle trips via `MiBici`. Usually in the form of a .csv file like `https://datos.jalisco.gob.mx/sites/default/files/reporte_de_viajes_en_bicicleta_publica_mibici_julio_2019.csv` . 
-
-Let's write a DAG `reporte_bicicletas` to help us aggregate the data. It will do the following:
-
-- The DAG is scheduled to run once per month, around the 15th day.
-- Uses the python requests library (or curl/wget) to try and download the .csv for the corresponding month.
-- If it doesn't exist creates a .csv file `todos_los_viajes.csv` that will aggregate all the .csv file's data
-- Appends the month's csv data to the `todos_los_viajes.csv` file.
-
-
-#### Challenge 
-Looking for some challenges? Try some of these:
-- Add another column to the .csv file to add the month.
-- Instead of aggregating the data in a .csv file, let's create a table `todos_los_viajes` in our database. There, INSERT the values each month.
-- Use the [google-api](https://github.com/googleapis/google-api-python-client) to upload everything in the DB or the .csv file to a google sheets (or just as a file to google drive)
-- If we re-run the DAG for the same month, it will keep on writing to the .csv file multiple times for the same month. Can you add a check to protect against this? 
+TODO: Next we'll run the scheduler - default test and example dags are on.
