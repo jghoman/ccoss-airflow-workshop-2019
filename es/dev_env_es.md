@@ -50,5 +50,3 @@ Sin embargo, en Windows 10 podemos correrlo via [Windows Subsystem for Linux 2](
 Otra alternativa para correr Airflow y Breeze en Windows es crear una maquina virtual con Linux. 
 
 Primero tenemos que instalar VMWare player, o VirtualBox. Despues, elige una distribucion de Linux, como Ubuntu o centOS. Ya instalado, podemos seguir las instrucciones de Linux de aqui arriba para correrlo. De igual manera, podemos correrlo si tenemos una distribucion de Linux instalada en nuestro disco duro.
-
-## Corriendo el Webserver y Scheduler

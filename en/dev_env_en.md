@@ -51,35 +51,3 @@ Please note that this will take more time to configure. However, once it's setup
 Another way to run Airflow and Breeze on Windows is by creating a virtual machine with Linux.
 
 First, install VMWare Player or VirtualBox. Then, chose a Linux distro like Ubuntu or centOS. After installing the disto, please follow the Linux instructions above. In a similar fashion, we can install a Linux distro in our hard drive, dual-booting, and then follow the Linux instructions.
-
-
-## Setting up the webserver
-
-Congrats! You set-up Airflow Breeze. Now let's configure and run Airflow.
-
-After setting up Airflow breeze, and running the `./breeze` command you'll be inside the Airflow container. Here you run:
-
-`airflow db init`
-This will create a database for you, by default it will be a mysql one.
-
-Then:
-`airflow users create --role Admin --username <your_username> --email <any_email> --firstname <your_name> --lastname <your_lastname>`
-
-Fill in that command with your information to be able to login to the web view. Once you enter that command, you will get a `Password:` prompt. Pick a password for your user.
-
-Finally:
-`airflow webserver` 
-
-This will initiate the web server. Visit [https://127.0.0.1:28080/](https://127.0.0.1:28080/) and log in! You will see a list of test and example dags.
-
-Now, we'll have to open another bash terminal inside the airflow container to keep running commands while the webserver is running. In your shell run:
-
-```
-docker ps
-```
-
-You will see a few containers running, copy the `airflow-testing` container. It's the one with a name like `ci_airflow-testing_run_a61fb503e71a` .
-
-Next, run `docker exec -ti ci_airflow-testing_run_a61fb503e71a /bin/bash` to be dropped into a bash shell in the container.
-
-TODO: Next we'll run the scheduler - default test and example dags are on.
