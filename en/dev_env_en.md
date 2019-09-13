@@ -20,7 +20,7 @@ https://github.com/<your_username>/airflow.git`.
 
 ## macOS / Unix / Linux Setup
 
-The last packages you need to install are gnu getopt and gstat. If you are in macOS, and have homebrew installed (if not, please install it following these [instructions]()) you can run `brew install gnu-getopt coreutils` Finally, you will add the package folder to your path via: 
+The last packages you need to install are gnu getopt and gstat. If you are in macOS, and have homebrew installed you can run `brew install gnu-getopt coreutils` Finally, you will add the package folder to your path via: 
 ```
 echo 'export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"' >> ~ .bash_profile
 . ~/.bash_profile
@@ -46,7 +46,7 @@ In Windows 10, we can run Breeze via [Windows Subsystem for Linux 2](https://doc
 
 Please note that this will take more time to configure. However, once it's setup Docker and Breeze should be easy to install following the Linux instructions above.
 
-### Maquina Virtual / Dual-boot
+### Virtual Machine / Dual-boot
 
 Another way to run Airflow and Breeze on Windows is by creating a virtual machine with Linux.
 

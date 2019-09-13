@@ -22,7 +22,7 @@ Vamos a seguir la guia oficial de Airflow para [contribuir](https://github.com/a
 ## macOS / Unix / Linux Setup
 
 En estas plataformas necesitamos instalar dos paquetes mas: gnu getopt y gstat.
-Para macOS, si tienes homebrew, los puedes intalar por homebrew via `brew install gnu-getopt coreutils`.
+Para macOS, si tienes homebrew, los puedes instalar por homebrew via `brew install gnu-getopt coreutils`.
 Terminando la instalacion, agregar el folder a tu PATH via:
 ```
 echo 'export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"' >> ~ .bash_profile
