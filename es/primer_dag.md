@@ -14,7 +14,7 @@ Después corre:
 Con tu información para poder entrar a la vista web. Veras un prompt de `Password:`. Elige uno para tu usuario.
 
 Finalmente corre:
-`airflow webserver` 
+`airflow webserver`
 
 Esto iniciará un web server. Visita [https://127.0.0.1:28080/](https://127.0.0.1:28080/) e inicia sesion! Veras una lista de DAGs de prueba y de ejemplo.
 
@@ -86,8 +86,8 @@ Para bajar los datos de cada mes, usaremos un PythonOperator que los descargue. 
 
 ```py
 t2 = PythonOperator(
-    task_id='get_month_rides'
-    provide_context=True
+    task_id='get_month_rides',
+    provide_context=True,
     python_callable=get_month_rides,
     dag=dag
 )

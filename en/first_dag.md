@@ -27,7 +27,7 @@ docker ps
 
 You will see a few containers running, copy the `airflow-testing` container. It's the one with a name like `ci_airflow-testing_run_a61fb503e71a` .
 
-Next, run `docker exec -ti ci_airflow-testing_run_a61fb503e71a /bin/bash` to be dropped into a bash shell in the container.
+Next, run `docker exec -ti ci_airflow-testing_run_a61fb503e71a /bin/bash` to be dropped into a bash shell in the container. Here 
 
 ## Your first DAG
 
@@ -86,11 +86,11 @@ The operator will look something like:
 
 ```py
 t2 = PythonOperator(
-    task_id='get_month_rides'
-    provide_context=True
+    task_id='get_month_rides',
+    provide_context=True,
     python_callable=get_month_rides,
     dag=dag
-)
+) 
 ```
 
 And the `get_month_rides` function would look something like:
