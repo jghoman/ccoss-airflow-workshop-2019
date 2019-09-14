@@ -20,7 +20,7 @@ https://github.com/<your_username>/airflow.git`.
 
 ## macOS / Unix / Linux Setup
 
-The last packages you need to install are gnu getopt and gstat. If you are in macOS, and have homebrew installed you can run `brew install gnu-getopt coreutils` Finally, you will add the package folder to your path via: 
+The last packages you need to install are gnu getopt and gstat. If you are in macOS, and have [homebrew](https://brew.sh/) installed you can run `brew install gnu-getopt coreutils` Finally, you will add the package folder to your path via: 
 ```
 echo 'export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"' >> ~ .bash_profile
 . ~/.bash_profile
