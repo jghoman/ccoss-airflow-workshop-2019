@@ -19,6 +19,8 @@ Finally run:
 
 This will initiate the web server. Visit [https://127.0.0.1:28080/](https://127.0.0.1:28080/) and log in! You will see a list of test and example dags.
 
+For now, turn **off** those dags.
+
 Now, we'll have to open another bash terminal inside the airflow container to keep running commands while the webserver is running. In your shell run:
 
 ```bash
@@ -44,7 +46,7 @@ Let's write a DAG `reporte_bicicletas.py` to help us aggregate the data. It will
 
 Before we start, let's create some variables to help ups:
 ```python
-ALL_RIDES_CSV = 'todos_los_viajes.csv'
+ALL_RIDES_CSV = '/opt/airflow/airflow/example_dags/todos_los_viajes.csv' # so that it's synced with our computer
 
 NUM_TO_MONTH = {'01': 'enero', '02': 'febrero', '03': 'marzo', '04': 'abril', '05':'nayo', '06':'junio', '07':'julio',
     '08':'agosto', '09':'septiembre', '10': 'octubre', '11':'noviembre','12':'diciembre'}
@@ -69,7 +71,7 @@ We'll have two operators. One to make sure that the `todos_los_viajes.csv` exist
 
 ### Define the dag
 
-Define a default_args dictionary based on [this documentation](https://airflow.apache.org/tutorial.html#default-arguments) and then add the dag: 
+Define a default_args dictionary based on [this documentation](https://airflow.apache.org/tutorial.html#default-arguments) making sure you have the required fields. and then add the dag: 
 ```py
 dag = DAG(
     'reporte_bicicletas',
@@ -97,7 +99,7 @@ And the `get_month_rides` function would look something like:
 
 ```python
 def get_month_rides(ds, **kwargs):
-    year = ds.split['-'][0] # year - month - day
+    year = ds.split('-')[0] # year - month - day
     month_number = ds.split('-')[1] # year - month - day
     month = NUM_TO_MONTH[month_number]
 
@@ -117,6 +119,8 @@ Viaje_Id  Usuario_Id Genero  Año_de_nacimiento     Inicio_del_viaje        Fin_
 ```
 
 Once that's done add `t1 >> t2` at the end of the file, and try running it! You can try running a backfill to get all the available data https://airflow.apache.org/cli.html#backfill
+
+Once you are done, you can run `./scripts/ci/local_ci_stop_environment.sh` locally to stop the containers.
 
 ## Challenges
 Looking for some challenges? Try some of these:

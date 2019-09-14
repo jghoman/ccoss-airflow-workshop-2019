@@ -18,6 +18,7 @@ Finalmente corre:
 
 Esto iniciará un web server. Visita [https://127.0.0.1:28080/](https://127.0.0.1:28080/) e inicia sesion! Veras una lista de DAGs de prueba y de ejemplo.
 
+Por ahora, terminamos 
 Ahora, hay que abrir otra terminal en el contenedor para correr mas comandos mientras el webserver corre.
 
 Localmente, en una terminal corre:
@@ -45,7 +46,7 @@ Crearemos una DAG en el archivo `reporte_bicicletas.py` para ayudarnos a juntar 
 
 Antes de empezar, hay que crear unas variables para ayudarnos:
 ```python
-ALL_RIDES_CSV = 'todos_los_viajes.csv'
+ALL_RIDES_CSV = '/opt/airflow/airflow/example_dags/todos_los_viajes.csv' # so that it's synced with our computer
 
 NUM_TO_MONTH = {'01': 'enero', '02': 'febrero', '03': 'marzo', '04': 'abril', '05':'nayo', '06':'junio', '07':'julio',
     '08':'agosto', '09':'septiembre', '10': 'octubre', '11':'noviembre','12':'diciembre'}
@@ -71,7 +72,7 @@ Tendremos dos operadores. Uno para asegurarse que `todos_los_viajes.csv` existe 
 
 ### Definiendo nuestra DAG
 
-Define un diccionario `default_args` [con esta documentación](https://airflow.apache.org/tutorial.html#default-arguments) y agrega la DAG: 
+Define un diccionario `default_args` [con esta documentación](https://airflow.apache.org/tutorial.html#default-arguments) , asegurandote de tener los campos requeridos como `start_date`. Agrega la DAG: 
 ```py
 dag = DAG(
     'reporte_bicicletas',
@@ -97,8 +98,8 @@ Y la función `get_month_rides` se ve algo como:
 
 ```python
 def get_month_rides(ds, **kwargs):
-    ## ds == year - month - day
-    year = ds.split['-'][0] # year - month - day
+    # ds == year - month - day
+    year = ds.split('-')[0] # year - month - day
     month_number = ds.split('-')[1]
     month = NUM_TO_MONTH[month_number] # convierte de numero -> nombre del mes
 
@@ -120,6 +121,7 @@ Viaje_Id  Usuario_Id Genero  Año_de_nacimiento     Inicio_del_viaje        Fin_
 
 Ya que hagamos eso, si llamamos a ese operador `t1` , agreguemos `t1 >> t2` al final del archivo. Trata correrlo! Puedes hacer un backfill para tener todos los datos en un rango de fechas. https://airflow.apache.org/cli.html#backfill
 
+Terminando, puedes parar todos los contenedores corriendo `./scripts/ci/local_ci_stop_environment.sh` desde tu computadora.
 ## Desafios
 Buscas mas desafios? Trata uno de los siguientes:
 
