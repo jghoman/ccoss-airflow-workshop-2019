@@ -17,7 +17,7 @@ Fill in that command with your information to be able to login to the web view. 
 Finally run:
 `airflow webserver` 
 
-This will initiate the web server. Visit [https://127.0.0.1:28080/](https://127.0.0.1:28080/) and log in! You will see a list of test and example dags.
+This will initiate the web server. Visit [http://127.0.0.1:28080/](http://127.0.0.1:28080/) and log in! You will see a list of test and example dags.
 
 For now, turn **off** those dags.
 
