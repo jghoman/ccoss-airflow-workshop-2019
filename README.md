@@ -14,3 +14,6 @@ This repo contains resources for the [Apache Airflow Contributor Workshop](https
 * 13:00 - Lunch
 * 15:30 - Contributing your first (and maybe second!) patch to Airflow
 * 18:00 - [Noche Mexicana](https://ccoss.org/schedule/2019-09-15?sessionId=party)
+
+## List of bugs for contribution
+[Bugs to fix](http://bit.ly/CCOSS-Airflow-tickets)
