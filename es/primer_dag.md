@@ -16,7 +16,7 @@ Con tu información para poder entrar a la vista web. Veras un prompt de `Passwo
 Finalmente corre:
 `airflow webserver`
 
-Esto iniciará un web server. Visita [https://127.0.0.1:28080/](https://127.0.0.1:28080/) e inicia sesion! Veras una lista de DAGs de prueba y de ejemplo.
+Esto iniciará un web server. Visita [http://127.0.0.1:28080/](http://127.0.0.1:28080/) e inicia sesion! Veras una lista de DAGs de prueba y de ejemplo.
 
 Por ahora, terminamos 
 Ahora, hay que abrir otra terminal en el contenedor para correr mas comandos mientras el webserver corre.
