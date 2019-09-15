@@ -16,4 +16,4 @@ This repo contains resources for the [Apache Airflow Contributor Workshop](https
 * 18:00 - [Noche Mexicana](https://ccoss.org/schedule/2019-09-15?sessionId=party)
 
 ## List of bugs for contribution
-[Bugs to fix](http://bit.ly/CCOSS-Airflow-tickets)
+[Bugs to fix - http://bit.ly/CCOSS-Airflow-tickets](http://bit.ly/CCOSS-Airflow-tickets)
