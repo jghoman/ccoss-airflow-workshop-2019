@@ -1,6 +1,6 @@
 # Cumbre de Contribuidores de Open Source Software 2019 - Apache Airflow Contributor Workshop materials
 
-## Overview
+## Overview - http://bit.ly/airflow-ccoss
 This repo contains resources for the [Apache Airflow Contributor Workshop](https://ccoss.org/schedule/2019-09-15?sessionId=w-airflow) at the [CCOSS 2019 conference](https://ccoss.org/).
 ## Presenters
 * [Temo Ojeda](https://www.linkedin.com/in/ojedac/) - Software engineer at Lyft, Airflow contributor
